@@ -18,7 +18,7 @@
                                 </tr>
                                 @foreach($reservations as $reservation)
                                 <tr>
-                                     <td>{{$reservation->bookingDate}}</td>
+                                     <td><a class="text-secondary" href="/reservations/{{$reservation->id}}">{{$reservation->bookingDate}}</a></td>
                                      <td><a href="/reservations/{{$reservation->id}}/edit" class="btn btn-primary">Edit</a></td>
                                      <td>{!!Form::open(['action' => ['ReservationsController@destroy',$reservation->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                              {{Form::hidden('_method','DELETE')}}

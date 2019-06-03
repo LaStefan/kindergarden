@@ -23,7 +23,7 @@
     <div class="">
     
     <a href="/reservations/{{$reservation->id}}/edit" class="btn btn-primary pull-right">Edit</a>
-    <a href="/reservations" type="button" class="btn btn-dark">Back</a>
+    
     <hr>
     {!!Form::open(['action' => ['ReservationsController@destroy',$reservation->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
         {{Form::hidden('_method','DELETE')}}

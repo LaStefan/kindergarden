@@ -19,10 +19,10 @@ class AddIdToReservationKidsTable extends Migration
             
         
         });
-       // Schema::table('reservation_kids', function (Blueprint $table){
-         //   $table->foreign('kid_id')->references('id')->on('kids')->onDelete('cascade');
-        //    $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
-      //  });
+       Schema::table('reservation_kids', function (Blueprint $table){
+          $table->foreign('kid_id')->references('id')->on('kids')->onDelete('CASCADE')->onUpdate('CASCADE');;
+           $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('CASCADE')->onUpdate('CASCADE');;
+       });
     }
 
     /**
@@ -33,10 +33,9 @@ class AddIdToReservationKidsTable extends Migration
     public function down()
     {
         Schema::table('reservation_kids', function (Blueprint $table) {
-            $table->dropColumn('kid_id');
-            $table->dropColumn('reservation_id');
             $table->dropForeign(['kid_id']);
             $table->dropForeign(['reservation_id']);
+            
         });
     }
 }
