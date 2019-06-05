@@ -20,11 +20,11 @@ class KidsController extends Controller
      */
     public function index()
     {   
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
+       // $user_id = auth()->user()->id;
+       // $user = User::find($user_id);
 
         $kids = Kid::orderBy('name','asc');
-        return view('kids.index')->with('kids',$user->kids);
+        return view('kids.index')->with('kids',$kids);
     }
 
     /**
